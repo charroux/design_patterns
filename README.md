@@ -26,3 +26,9 @@ File -> Import -> Existing project into workspace
 
 Lancer le main en tant que Java application : https://github.com/charroux/design_patterns/blob/master/src/main/java/epsi/design_patterns/DesignPatternsApplication.java
 
+-------------------------------------------
+
+Une classe qui va générer une table : 
+https://github.com/charroux/design_patterns/blob/master/src/main/java/epsi/design_patterns/jpaExemple/Customer.java
+
+Une interface pour réaliser la design pattern CRUD : https://github.com/charroux/design_patterns/blob/master/src/main/java/epsi/design_patterns/jpaExemple/CustomerRepository.java
