@@ -10,6 +10,9 @@ import org.springframework.context.annotation.Bean;
 
 import epsi.design_patterns.jpaExemple.Customer;
 import epsi.design_patterns.jpaExemple.CustomerRepository;
+import epsi.design_patterns.projet.domain.Passager;
+import epsi.design_patterns.projet.domain.Voiture;
+import epsi.design_patterns.projet.domain.VoitureRepository;
 
 @SpringBootApplication
 public class DesignPatternsApplication {
@@ -18,6 +21,26 @@ public class DesignPatternsApplication {
 	
 	public static void main(String[] args) {
 		SpringApplication.run(DesignPatternsApplication.class, args);
+	}
+	
+	@Bean
+	public CommandLineRunner demo1(VoitureRepository repository) {
+		return (args) -> {
+			
+			Voiture voiture = new Voiture(null, "11AA22");
+			Passager passager = new Passager("Tintin", 50);
+			voiture.addPassager(passager);
+			
+			repository.save(voiture);
+			
+			repository.findById("11AA22")
+			.ifPresent(voit -> {
+				log.info("Voiture found with findById(11AA22):");
+				log.info("--------------------------------");
+				log.info(voit.toString());
+				log.info("");
+			});
+		};
 	}
 	
 	@Bean
