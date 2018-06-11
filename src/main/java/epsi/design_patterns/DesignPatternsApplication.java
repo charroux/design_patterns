@@ -1,5 +1,8 @@
 package epsi.design_patterns;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,7 +30,11 @@ public class DesignPatternsApplication {
 	public CommandLineRunner demo1(VoitureRepository repository) {
 		return (args) -> {
 			
-			Voiture voiture = new Voiture(null, "11AA22");
+			SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+			Date miseEnCirculation = df.parse("30/05/2018");
+			
+			Voiture voiture = new Voiture(miseEnCirculation, "11AA22");
+			
 			Passager passager = new Passager("Tintin", 50);
 			voiture.addPassager(passager);
 			
