@@ -20,7 +20,7 @@ Convertir le projet en un projet Eclipse :
 
 Importer le projet sous Eclipse :
 
-File -> Import -> Existing project into workspace
+File -> Import -> General -> Existing project into workspace
 
 --------------------------------------------
 
