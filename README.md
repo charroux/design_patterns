@@ -14,13 +14,13 @@ Compiler le projet :
 Convertir le projet en un projet Eclipse :
 
 - sous Windows : gradlew eclipse
-- sous Eclipse : ./gradlew eclipse
+- sous Linux : ./gradlew eclipse
 
 ---------------------------------------------
 
 Importer le projet sous Eclipse :
 
-File -> Import -> Existing project into Eclipse
+File -> Import -> Existing project into workspace
 
 --------------------------------------------
 
