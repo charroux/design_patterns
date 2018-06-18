@@ -9,17 +9,19 @@ import epsi.design_patterns.projet.domain.VoitureRepository;
 
 public class ConduireTaxi implements Conduire{
 
-	@Autowired
 	VoitureRepository voitureRepository;
-	@Autowired
 	PassagerRepository passagerRepository;
 	
 	Voiture taxi = new Voiture();
 	
+	public ConduireTaxi(VoitureRepository voitureRepository, PassagerRepository passagerRepository) {
+		super();
+		this.voitureRepository = voitureRepository;
+		this.passagerRepository = passagerRepository;
+	}
+
 	@Override
 	public Passager addPassager(String nomPassager) {
-		
-		System.out.println(voitureRepository);
 		
 		// rechercher passager existant
 		Passager passager = passagerRepository.findByNom(nomPassager);
