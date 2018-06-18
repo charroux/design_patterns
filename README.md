@@ -28,7 +28,15 @@ Lancer le main en tant que Java application : https://github.com/charroux/design
 
 -------------------------------------------
 
-Une classe qui va générer une table : 
-https://github.com/charroux/design_patterns/blob/master/src/main/java/epsi/design_patterns/jpaExemple/Customer.java
+Une classe Voiture qui va générer une table : 
+https://github.com/charroux/design_patterns/blob/master/src/main/java/epsi/design_patterns/projet/domain/Voiture.java
 
-Une interface pour réaliser la design pattern CRUD : https://github.com/charroux/design_patterns/blob/master/src/main/java/epsi/design_patterns/jpaExemple/CustomerRepository.java
+Une classe Passager qui va générer une table : 
+https://github.com/charroux/design_patterns/blob/master/src/main/java/epsi/design_patterns/projet/domain/Passager.java
+
+Une interface pour réaliser la design pattern CRUD pour les voitures :
+https://github.com/charroux/design_patterns/blob/master/src/main/java/epsi/design_patterns/projet/domain/VoitureRepository.java
+
+Une interface pour réaliser la design pattern CRUD pour les passagers :
+https://github.com/charroux/design_patterns/blob/master/src/main/java/epsi/design_patterns/projet/domain/PassagerRepository.java
+

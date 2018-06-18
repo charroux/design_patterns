@@ -3,16 +3,18 @@ package epsi.design_patterns.projet.application;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import epsi.design_patterns.projet.domain.Passager;
+import epsi.design_patterns.projet.domain.PassagerRepository;
 import epsi.design_patterns.projet.domain.Voiture;
 import epsi.design_patterns.projet.domain.VoitureRepository;
-import epsi.design_patterns.projet.services.persistence.Repository;
 
 public class ConduireTaxi implements Conduire{
 
 	@Autowired
 	VoitureRepository voitureRepository;
+	@Autowired
+	PassagerRepository passagerRepository;
+	
 	Voiture taxi = new Voiture();
-	Repository<Passager> repository;
 	
 	@Override
 	public Passager addPassager(String nomPassager) {
@@ -20,11 +22,11 @@ public class ConduireTaxi implements Conduire{
 		System.out.println(voitureRepository);
 		
 		// rechercher passager existant
-		Passager passager = repository.findByNom(nomPassager);
+		Passager passager = passagerRepository.findByNom(nomPassager);
 		// le passage n'existe pas
 		if(passager == null) {
 			passager = new Passager();
-			repository.save(passager);
+			passagerRepository.save(passager);
 		}
 		passager.setNom(nomPassager);
 		taxi.addPassager(passager);	
