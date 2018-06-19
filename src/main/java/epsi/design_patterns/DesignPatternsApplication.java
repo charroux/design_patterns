@@ -37,12 +37,11 @@ public class DesignPatternsApplication {
 			SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 			Date miseEnCirculation = df.parse("30/05/2018");
 			
-			/*Voiture taxi = new Voiture("11AA22", miseEnCirculation);
-			Conduire c = new ConduireTaxi(taxi, voitureRepository, passagerRepository);
-			c.addPassager("tintin");*/
+			Voiture taxi = new Voiture("11AA22", miseEnCirculation);
+			Conduire conduire = new ConduireTaxi(taxi, voitureRepository, passagerRepository);
+			conduire.addPassager("tintin");
 			
-			
-			
+			/*			
 			Voiture voiture = new Voiture("11AA22", miseEnCirculation);
 			
 			Passager passager = new Passager("Tintin");
@@ -57,7 +56,7 @@ public class DesignPatternsApplication {
 				log.info("--------------------------------");
 				log.info(voit.toString());
 				log.info("");
-			});
+			});*/
 		};
 	}
 	
