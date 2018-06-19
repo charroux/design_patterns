@@ -19,15 +19,13 @@ public class Passager {
 	String nom;
 	float montantCourse;
 
-	public Passager(String nom, float montantCourse) {
+	public Passager(String nom) {
 		super();
 		this.nom = nom;
-		this.montantCourse = montantCourse;
 	}
 
 	public Passager() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Voiture getVoiture() {
@@ -66,6 +64,5 @@ public class Passager {
 	public String toString() {
 		return "Passager [id=" + id + ", nom=" + nom + ", montantCourse=" + montantCourse + "]";
 	}
-
 
 }

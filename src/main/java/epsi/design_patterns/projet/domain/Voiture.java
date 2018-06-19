@@ -8,22 +8,27 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Voiture {
 	
 	@OneToMany(mappedBy="voiture", cascade = CascadeType.ALL)
 	Collection<Passager> passagers = new ArrayList<Passager>();
+	
+	@Temporal(TemporalType.DATE)
 	Date miseEnCirculation;
+	
 	@Id
 	String immatriculation;
 	
-	public Voiture(Date miseEnCirculation, String immatriculation) {
+	public Voiture(String immatriculation, Date miseEnCirculation) {
 		super();
 		this.miseEnCirculation = miseEnCirculation;
 		this.immatriculation = immatriculation;
 	}
-
+	
 	public Voiture() {
 		super();
 	}
@@ -44,14 +49,6 @@ public class Voiture {
 	public void removePassager(Passager passager) {
 		passagers.remove(passager);
 		passager.setVoiture(null);
-	}
-	
-	public Date getMiseEnService() {
-		return miseEnCirculation;
-	}
-
-	public void setMiseEnService(Date miseEnService) {
-		this.miseEnCirculation = miseEnService;
 	}
 
 	public Date getMiseEnCirculation() {
@@ -75,6 +72,5 @@ public class Voiture {
 		return "Voiture [passagers=" + passagers + ", miseEnCirculation=" + miseEnCirculation + ", immatriculation="
 				+ immatriculation + "]";
 	}
-	
 
 }

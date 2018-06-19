@@ -22,9 +22,6 @@ import epsi.design_patterns.projet.domain.VoitureRepository;
 public class DesignPatternsApplication {
 	
 	@Autowired
-	VoitureRepository voitureRepository;
-	
-	@Autowired
 	PassagerRepository passagerRepository;
 
 	private static final Logger log = LoggerFactory.getLogger(DesignPatternsApplication.class);
@@ -34,23 +31,27 @@ public class DesignPatternsApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner demo1(VoitureRepository repository) {
+	public CommandLineRunner demo1(VoitureRepository voitureRepository) {
 		return (args) -> {
-			
-			Conduire c = new ConduireTaxi(voitureRepository, passagerRepository);
-			c.addPassager("tintin");
 			
 			SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 			Date miseEnCirculation = df.parse("30/05/2018");
 			
-			Voiture voiture = new Voiture(miseEnCirculation, "11AA22");
+			/*Voiture taxi = new Voiture("11AA22", miseEnCirculation);
+			Conduire c = new ConduireTaxi(taxi, voitureRepository, passagerRepository);
+			c.addPassager("tintin");*/
 			
-			Passager passager = new Passager("Tintin", 50);
+			
+			
+			Voiture voiture = new Voiture("11AA22", miseEnCirculation);
+			
+			Passager passager = new Passager("Tintin");
+			
 			voiture.addPassager(passager);
 			
-			repository.save(voiture);
+			voitureRepository.save(voiture);
 			
-			repository.findById("11AA22")
+			voitureRepository.findById("11AA22")
 			.ifPresent(voit -> {
 				log.info("Voiture found with findById(11AA22):");
 				log.info("--------------------------------");

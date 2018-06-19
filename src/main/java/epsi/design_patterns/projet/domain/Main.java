@@ -13,7 +13,7 @@ public class Main {
 			
 			SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 			Date miseEnCirculation = df.parse("30/05/2018");
-			ferrari.setMiseEnService(miseEnCirculation);
+			ferrari.setMiseEnCirculation(miseEnCirculation);
 			
 			Passager tintin = new Passager();
 			tintin.setNom("Tintin");

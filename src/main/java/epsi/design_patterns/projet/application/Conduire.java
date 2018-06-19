@@ -6,6 +6,6 @@ public interface Conduire {
 	
 	public Passager addPassager(String nomPassager);
 	public float calculerMontantCourse(int distance);
-	public boolean payer(Passager payer, float montant);
+	public boolean payer(float montant);
 
 }

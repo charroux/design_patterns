@@ -1,7 +1,5 @@
 package epsi.design_patterns.projet.application;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import epsi.design_patterns.projet.domain.Passager;
 import epsi.design_patterns.projet.domain.PassagerRepository;
 import epsi.design_patterns.projet.domain.Voiture;
@@ -12,26 +10,29 @@ public class ConduireTaxi implements Conduire{
 	VoitureRepository voitureRepository;
 	PassagerRepository passagerRepository;
 	
-	Voiture taxi = new Voiture();
+	Voiture taxi;
 	
-	public ConduireTaxi(VoitureRepository voitureRepository, PassagerRepository passagerRepository) {
+	public ConduireTaxi(Voiture taxi, VoitureRepository voitureRepository, PassagerRepository passagerRepository) {
 		super();
+		this.taxi = taxi;
 		this.voitureRepository = voitureRepository;
 		this.passagerRepository = passagerRepository;
 	}
 
 	@Override
 	public Passager addPassager(String nomPassager) {
-		
 		// rechercher passager existant
 		Passager passager = passagerRepository.findByNom(nomPassager);
 		// le passage n'existe pas
 		if(passager == null) {
 			passager = new Passager();
-			passagerRepository.save(passager);
 		}
+		
 		passager.setNom(nomPassager);
-		taxi.addPassager(passager);	
+		taxi.addPassager(passager);
+		
+		voitureRepository.save(taxi);
+		
 		return passager;
 	}
 
@@ -41,7 +42,7 @@ public class ConduireTaxi implements Conduire{
 	}
 
 	@Override
-	public boolean payer(Passager payer, float montant) {
+	public boolean payer(float montant) {
 		return false;
 	}
 
